@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">LauncherAppDemo</string>
+    <string name="package_name">Package Name \n%s</string>
+    <string name="launcher_name">Launcher Name \n%s</string>
+
+    <string name="version_code">Version Code %s</string>
+    <string name="version_name">Version Name %s</string>
+
+    <string name="query_hint">Search by Application Name</string>
+    <string name="no_search_results_found">No search results found</string>
+
+    <string name="empty_string"></string>
+    <string name="installed">New Application Package Installed</string>
+    <string name="uninstalled">Existing Application Package Uninstalled</string>
+
+</resources>

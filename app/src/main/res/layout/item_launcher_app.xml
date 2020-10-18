@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.jay.launcherappdemo.viewmodel.LauncherAppRowViewModel" />
+
+        <variable
+            name="item"
+            type="com.jay.launcherappsdk.model.LauncherApplicationMetaData" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_card"
+        style="@style/CardViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_medium_large"
+        android:layout_marginEnd="@dimen/space_medium_large">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/space_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/section_one"
+                android:layout_width="@dimen/space_zero"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toStartOf="@+id/section_two"
+                app:layout_constraintHorizontal_weight="0.3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:src="@{vm.item.icon}"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/ic_launcher_background" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/section_two"
+                android:layout_width="@dimen/space_zero"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_medium"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="0.7"
+                app:layout_constraintStart_toEndOf="@+id/section_one"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/text_style_B16_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.item.appName}"
+                    tools:text="App name Jay" />
+
+                <TextView
+                    style="@style/text_style_R14_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/package_name, vm.item.packageName),default= @string/empty_string }"
+                    tools:text="Package name" />
+
+                <TextView
+                    style="@style/text_style_R14_primary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/launcher_name, vm.item.launcherActivityName),default= @string/empty_string }"
+                    tools:text="Launcher Activity name" />
+
+                <TextView
+                    style="@style/text_style_R14_secondary_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_medium"
+                    android:text="@{String.format(@string/version_code, vm.item.versionCode.toString()),default= @string/empty_string }"
+                    tools:text="Version Code 1" />
+
+                <TextView
+                    style="@style/text_style_R14_secondary_light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/version_name, vm.item.versionName.toString()),default= @string/empty_string }"
+                    tools:text="Version Name 5727" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
